@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Files</title>
+    <script src="js/dropzone.min.js"></script>
+    <link
+            rel="stylesheet"
+            href="css/dropzone.min.css"
+            type="text/css"
+    />
+    <link
+            rel="stylesheet"
+            href="css/bootstrap.min.css"
+            type="text/css"
+    />
+
+    <style>
+        .dropzone {
+            border: 1px dashed black;
+            background: #F2F2F2;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-2">
+        </div>
+        <div class="col-md-auto">
+            <h3>IP: <small class="badge bg-primary" th:text="${ip}">.</small></h3>
+        </div>
+        <div class="col col-lg-2">
+
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-10">
+
+            <div class="my-dropzone"></div>
+
+            <script>
+                Dropzone.options.myDropzone = { // camelized version of the `id`
+                    paramName: "fileDatas", // The name that will be used to transfer the file
+                    maxFilesize: 10000, // 10 GB
+                };
+            </script>
+            <form th:object="${myUploadForm}" method="POST" class="dropzone" id="my-dropzone"
+                  action="/" enctype="multipart/form-data">
+            </form>
+
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">File</th>
+                    <th scope="col">Size</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <th:block th:each="file : ${existingFiles}">
+                    <tr>
+                        <td>
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">
+                                    <a th:href="@{/download(fileName=${file.key})}" th:text="${file.key}">..</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge bg-primary rounded-pill" th:text="${file.value}"></span>
+                        </td>
+                    </tr>
+                </th:block>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

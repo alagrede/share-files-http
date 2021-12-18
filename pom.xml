@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>share-upload</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>share-upload</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -34,6 +34,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>share-upload</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

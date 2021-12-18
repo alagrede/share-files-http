@@ -119,7 +119,7 @@ public class MyFileUploadController {
                     if (address.contains(".")
                             && isNumeric(address.split("\\.")[0])
                             && isValidIp(address.split("\\.")[0])) {
-                        System.out.println("selected address" + address);
+                        System.out.println("selected address: " + address);
                         return address;
                     }
 

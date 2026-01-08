@@ -78,10 +78,11 @@ public class MyFileUploadController {
                     // Create the file at server
                     File serverFile = new File(uploadRootDir.getAbsolutePath() + File.separator + name);
 
-                    BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
-                    stream.write(fileData.getBytes());
-                    stream.close();
-                    //
+                    try (BufferedOutputStream stream =
+                            new BufferedOutputStream(new FileOutputStream(serverFile))) {
+                        fileData.getInputStream().transferTo(stream);
+                    }
+
                     uploadedFiles.add(serverFile);
                     System.out.println("Write file: " + serverFile);
                 } catch (Exception e) {

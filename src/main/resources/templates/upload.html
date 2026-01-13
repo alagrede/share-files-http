@@ -48,6 +48,11 @@
                 Dropzone.options.myDropzone = { // camelized version of the `id`
                     paramName: "fileDatas", // The name that will be used to transfer the file
                     maxFilesize: 10000, // 10 GB
+                    init: function() {
+                        this.on("queuecomplete", function() {
+                            location.reload();
+                        });
+                    }
                 };
             </script>
             <form th:object="${myUploadForm}" method="POST" class="dropzone" id="my-dropzone"

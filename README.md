@@ -1,23 +1,48 @@
-## Share files
-Share files (Upload/Download) over HTTP
+# Share Files HTTP
 
-![Screenshot](https://github.com/alagrede/share-files-http/blob/master/docs/screenshot.png)
+Share files (Upload/Download) over HTTP with a simple web interface.
 
-
-## Download
 ![Stable version](https://img.shields.io/badge/version-1.0.0-blue)
 
-Executable: <a href="https://github.com/alagrede/share-files-http/releases/latest/download/share-upload.jar">[share-upload.jar]</a>
+## Features
 
-### Build
-```
+- Upload files via web browser
+- Download files with streaming support
+- Simple and lightweight
+- Swing UI for easy configuration
+
+## Screenshots
+
+### Web Interface
+![Web Interface](https://raw.githubusercontent.com/alagrede/share-files-http/refs/heads/master/docs/screenshot.png)
+
+### Swing UI
+![Swing UI](https://raw.githubusercontent.com/alagrede/share-files-http/refs/heads/master/docs/screenshot-ui.png)
+
+## Installation
+
+### Download
+
+Download the latest release: [share-upload.jar](https://github.com/alagrede/share-files-http/releases)
+
+### Build from source
+
+```bash
 ./mvnw clean package
 ```
 
+## Usage
+
 ### Run
-```
-java -Xmx6G -DuploadPath=/Users/alagrede/Desktop/upload -jar target/share-upload.jar
+
+```bash
+java -jar target/share-upload.jar
 ```
 
-### Use
-`http://localhost:8080`
+### Access
+
+Open your browser at: `http://localhost:8080`
+
+## License
+
+MIT
